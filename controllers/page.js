@@ -1,0 +1,18 @@
+exports.renderProfile = (req, res) => {
+    res.render('profile', { title: '내 정보 - NodeBird' });
+};
+
+exports.renderJoin = (req, res) => {
+    res.render('join', { title: '회원 가입 - NodeBird'});
+};
+
+exports.renderMain = (req, res, next) => {
+    const twits = [];
+    console.log('renderMain: ', req.user);
+    const user = req.user;
+    res.render('main', {
+        title: "NodeBird",
+        twits,
+        user,
+    });
+};
